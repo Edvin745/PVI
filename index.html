@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="./style.css" />
+    <title>Students</title>
+    <script src="./script.js"></script>
+</head>
+
+<body style=background-color:#F2F2E9>
+    <header class="header">
+        <p class="logo">CMS</p>
+        <div class="rightbar">
+            <img src="images/bell.png" alt="bell_icon" />
+            <div class="avatar">
+                <img src="images/avatar.jpg" alt="avatar" />
+            </div>
+        </div>
+    </header>
+    <div class="main">
+        <div class="menu">
+            <ul>
+                <li>
+                    <a href="/"> Dashboard</a>
+                </li>
+                <li>
+                    <a href="/"> Students</a>
+                </li>
+                <li>
+                    <a href="/"> Tasks </a>
+                </li>
+            </ul>
+        </div>
+        <div class="content">
+            <div class="content_header">
+                <h2>Students</h2>
+                <button id="add_student_button" class="add_student_button">
+                    <img src="./add.png" alt="" />
+                </button>
+            </div>
+            <table id="students_table" class="table">
+                <thead>
+                    <tr>
+                        <th> <input type="checkbox"> </th>
+                        <th>Group</th>
+                        <th>Name</th>
+                        <th>Gender</th>
+                        <th>Birthday</th>
+                        <th>Status</th>
+                        <th>Options</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Add student modal -->
+    <div id="add_student_modal" class="modal add_student_modal">
+        <div class="modal_header">
+            <h3>Add Student</h3>
+            <button class="close_button">
+                <img src="./close.png" alt="close" />
+            </button>
+        </div>
+        <div class="modal_body">
+            <form id="add_student_form" class="student_form">
+                <p>
+                    <label for="username">Group</label>
+                    <select name="group">
+                        <option>Select Group</option>
+                        <option value="PZ-21">PZ-21</option>
+                        <option value="PZ-22">PZ-22</option>
+                    </select>
+                </p>
+                <p>
+                    <label for="username">First name</label>
+                    <input type="text" id="username" name="firstName" />
+                </p>
+                <p>
+                    <label for="username">Last name</label>
+                    <input type="text" id="username" name="LastName" />
+                </p>
+                <p>
+                    <label for="username">Gender</label>
+                    <select name="gender">
+                        <option>Select Gender</option>
+                        <option value="Man">Man</option>
+                        <option value="Woman">Woman</option>
+                    </select>
+                </p>
+                <div class="modal_buttons">
+                    <button class="cancel_button">Cancel</button>
+                    <input type="submit" value="Submit" class="success_button" />
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>
