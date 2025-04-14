@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="./style.css">
+    <title>Students</title>
+    <script defer src="./script.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+    <header class="header">
+        <h1 class="logo">CMS</h1>
+        <div class="rightbar">
+            <div class="bell">
+                <img src="images/bell.png" alt="bell_icon">
+                <span style="font-size: 20px" class="tooltip-bell-text">New message from Gill Bates<br> ----------------
+                    <br> New 2 messages from Melon Husk</span>
+            </div>
+            <div class="avatar">
+                <img src="images/avatar.jpg" alt="avatar">
+                <span class="tooltip-text"><b>Profile <br> Settings <br> Language<br> About us</b></span>
+            </div>
+        </div>
+    </header>
+    <div class="main">
+        <div class="menu">
+            <ul>
+                <li><a href="dashboard.html"> Dashboard</a></li>
+                <li><a href="/"> Students</a></li>
+                <li><a href="tasks.html"> Tasks </a></li>
+            </ul>
+        </div>
+        <div class="content">
+            <div class="content_header">
+                <h2>Students</h2>
+                <div>
+                    <button id="add_student_button" class="add_student_button">
+                        <img src="images/add.png" alt="add">
+                    </button>
+                    <button id="remove_student_button" class="remove_student_button">
+                        <img src="images/remove.png" alt="remove" class="remove_student_image">
+
+                    </button>
+                </div>
+            </div>
+            <table id="students_table" class="table">
+                <thead>
+                    <tr>
+                        <th>-<input type="checkbox" class="studentCheckbox" style="align-items:center;" id="selectAll"
+                                aria-label="Select student ${value.fullName}">-
+                        </th>
+                        <th>Group</th>
+                        <th>Name</th>
+                        <th>Gender</th>
+                        <th>Birthday</th>
+                        <th>Status</th>
+                        <th>Options</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Add student modal -->
+    <div id="add_student_modal" class="modal add_student_modal">
+        <div class="modal_header">
+            <h3>Add Student</h3>
+            <button id="close_button" class="close_button">
+                <img src="images/close.png" alt="close">
+            </button>
+        </div>
+        <div class="modal_body">
+            <form id="add_student_form" class="student_form">
+                <p>
+                    <label for="group">Group</label>
+                    <select id="group" name="group">
+                        <option>Select Group</option>
+                        <option value="PZ-21">PZ-21</option>
+                        <option value="PZ-22">PZ-22</option>
+                        <option value="PZ-23">PZ-23</option>
+                        <option value="PZ-24">PZ-24</option>
+                        <option value="PZ-25">PZ-25</option>
+                        <option value="PZ-26">PZ-26</option>
+                        <option value="PZ-27">PZ-27</option>
+                    </select>
+                </p>
+                <p>
+                    <label for="firstName">First name</label>
+                    <input type="text" id="firstName" name="firstName">
+                </p>
+                <p>
+                    <label for="lastName">Last name</label>
+                    <input type="text" id="lastName" name="lastName">
+                </p>
+                <p>
+                    <label for="gender">Gender</label>
+                    <select id="gender" name="gender">
+                        <option>Select Gender</option>
+                        <option value="Man">Male</option>
+                        <option value="Woman">Female</option>
+                    </select>
+                </p>
+                <p>
+                    <label for="birthday">Birthday</label>
+                    <input type="date" id="birthday" name="birthday">
+                </p>
+                <div class="modal_buttons">
+                    <input type="submit" value="Submit" class="success_button">
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Edit student modal -->
+    <div id="edit_student_modal" class="modal add_student_modal">
+        <div class="modal_header">
+            <h3>Edit Student</h3>
+            <button id="close_modal_button" class="close_button">
+                <img src="./close.png" alt="close">
+            </button>
+        </div>
+        <div class="modal_body">
+            <form id="edit_student_form" class="student_form">
+                <input type="hidden" id="edit_id">
+                <p>
+                    <label for="edit_group">Group</label>
+                    <select id="edit_group" name="group">
+                        <option>Select Group</option>
+                        <option value="PZ-21">PZ-21</option>
+                        <option value="PZ-22">PZ-22</option>
+                        <option value="PZ-23">PZ-23</option>
+                        <option value="PZ-24">PZ-24</option>
+                        <option value="PZ-25">PZ-25</option>
+                        <option value="PZ-26">PZ-26</option>
+                        <option value="PZ-27">PZ-27</option>
+                    </select>
+                </p>
+                <p>
+                    <label for="edit_firstName">First name</label>
+                    <input type="text" id="edit_firstName" name="firstName">
+                </p>
+                <p>
+                    <label for="edit_lastName">Last name</label>
+                    <input type="text" id="edit_lastName" name="lastName">
+                </p>
+                <p>
+                    <label for="edit_gender">Gender</label>
+                    <select id="edit_gender" name="gender">
+                        <option>Select Gender</option>
+                        <option value="Man">Male</option>
+                        <option value="Woman">Female</option>
+                    </select>
+                </p>
+                <p>
+                    <label for="edit_birthday">Birthday</label>
+                    <input type="date" id="edit_birthday" name="birthday">
+                </p>
+                <div class="modal_buttons">
+                    <button type="button" id="save_student_button" class="success_button">Зберегти</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div id="confirm_delete_modal" class="modal_confirm_delete">
+        <div class="modal-content">
+            <h3>Підтвердити видалення</h3>
+            <p>Ви дійсно хочете видалити вибраного(-их) студента(-ів)?</p>
+            <div class="modal-actions">
+                <button id="confirm_delete_btn" class="confirm">Так</button>
+                <button id="cancel_delete_btn" class="cancel">Скасувати</button>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
