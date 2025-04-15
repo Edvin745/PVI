@@ -6,6 +6,9 @@
 html,
 body {
     height: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
 }
 
 .header {
@@ -92,6 +95,14 @@ body {
 
 .menu {
     background-color: #c5aa6a;
+    width: 200px;
+    /* або скільки тобі треба */
+    height: calc(100vh - 50px);
+    /* повна висота мінус header */
+    position: fixed;
+    top: 50px;
+    /* висота header */
+    left: 0;
 }
 
 .menu ul {
@@ -117,13 +128,17 @@ body {
 
 .main {
     display: flex;
-    height: calc(100% - 70px);
-    padding-top: 70px;
+    flex: 1;
+    /* це дозволяє зайняти всю висоту, що залишилась після header */
+    margin-top: 50px;
+    /* висота header */
 }
 
 .content {
+    margin-left: 200px;
+    /* така ж як ширина .menu */
     padding: 25px;
-    width: 100%;
+    width: calc(100% - 200px);
 }
 
 .content_header {
